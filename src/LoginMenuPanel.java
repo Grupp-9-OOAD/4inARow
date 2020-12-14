@@ -110,8 +110,6 @@ public class LoginMenuPanel extends JPanel implements ActionListener {
             createUser();
         } else if (e.getSource() == confirmLoginButton) {
             attemptLogin();
-        } else if (e.getSource() == highScoreButton){
-            JOptionPane.showMessageDialog(this, game.getHighScoreString());
         }
     }
 }

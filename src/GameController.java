@@ -1,5 +1,6 @@
 import model.Tile;
 import model.User;
+import model.UserDatabase;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,11 +19,10 @@ public class GameController extends JFrame implements ActionListener {
     private final LoginMenuView loginMenuView;
     private final GameBoardView gameBoardView = new GameBoardView(this);
     private final ImageIcon winnerIcon =  new ImageIcon("43991-93-ibate-1.png");
-    private final ImageIcon imageIcon = new ImageIcon("src/images/Games_BoardGames_Artboard_28-512.png");
 
     public GameController(LoginMenuView loginMenuView) {
         this.loginMenuView = loginMenuView;
-        setIconImage(imageIcon.getImage());
+        setIconImage(new ImageIcon("src/images/Games_BoardGames_Artboard_28-512.png").getImage());
         setLayout(new BorderLayout());
         add(BorderLayout.CENTER, loginMenuView);
         setTitle("Logga in spelare 1");

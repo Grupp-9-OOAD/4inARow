@@ -1,4 +1,5 @@
 import model.User;
+import model.UserDatabase;
 
 import javax.swing.*;
 import java.awt.*;
@@ -81,7 +82,6 @@ public class LoginMenuView extends JPanel implements ActionListener {
         User user = new User()
                 .setUserName(userNameField.getText().trim())
                 .setPassword(passwordField.getText().trim());
-
         try {
             UserDatabase.addUser(user);
             outputLabel.setText(user + " skapad");
@@ -92,8 +92,10 @@ public class LoginMenuView extends JPanel implements ActionListener {
 
     void attemptLogin() {
         Optional<User> userOptional;
-        userOptional = UserDatabase.getUser(userNameField.getText(), passwordField.getText());
-        userOptional.ifPresentOrElse(this::loginSuccessful, this::loginFail);
+        userOptional = UserDatabase.getUser
+                (userNameField.getText(), passwordField.getText());
+        userOptional.ifPresentOrElse
+                (this::loginSuccessful, this::loginFail);
     }
 
     void loginSuccessful(User user) {
